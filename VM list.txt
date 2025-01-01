@@ -1,0 +1,93 @@
+Windows
+ Windows XP
+ Windows Vista
+ Windows 7
+ Windows 8.1
+ Windows 10
+ Windows 11
+
+Linux
+ Ubuntu
+ Arch
+ Red Ribbon
+ Kali
+ Parrot
+
+Mac
+ Universal
+
+Android
+ 2.0
+ 4.0
+ 4.4
+ 5.0
+ 7.0
+ 8.0
+ 8.0 Go Edition
+ 9.0
+ 10
+ 11
+ 12
+ 13
+ 14
+ 15
+
+IOS
+ Universal
+
+PlayStation
+ PlayStation3
+  OFW
+   4.91
+   4.90
+   4.89
+   4.88
+   4.87
+   4.86
+   4.85
+   4.84
+   4.83
+   4.82
+   4.81
+   4.80
+   3.75
+   3.55
+  HFW
+   4.91 HEN
+   4.90 HEN
+   4.89 HEN
+   4.88 HEN
+   4.87 HEN
+   4.86 GemBox
+   4.86 HEN
+   4.85 HEN
+   4.84 HEN
+   4.83 HEN
+  CFW
+   4.91
+   4.90
+   4.89
+   4.88
+   4.87
+   4.86
+   4.85
+   4.84
+   4.83
+   4.82
+   4.81
+   4.80
+   3.75
+   3.55
+ PlayStation4
+ PlayStation5
+
+Xbox
+ Xbox 360
+ Xbox One
+ Xbox One S
+ Xbox One X
+
+Nintendo
+ Nintendo Wii
+ Nintendo Wii U
+ Nintendo Switch
