@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MultiOS VM Design</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #141414;
+            font-family: Arial, sans-serif;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #1e1e1e;
+            border-bottom: 2px solid white;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+        }
+
+        .navbar .icon {
+            width: 32px;
+            height: 32px;
+            margin: 0 5px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .dropdown {
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            width: 230px;
+            transform: translateX(-50%);
+            display: none;
+            background-color: #1e1e1e;
+            border: 1px solid white;
+            border-radius: 10px;
+            padding: 10px;
+            z-index: 1000;
+        }
+
+        .dropdown.first {
+            left: 0;
+            transform: none;
+        }
+
+        .dropdown a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .dropdown a:hover {
+            background-color: #333333;
+        }
+
+        .icon-container {
+            position: relative;
+        }
+
+        .icon-container.active .dropdown {
+            display: block;
+        }
+
+        .content {
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        h4 {
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            background-color: white;
+            color: #141414;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #dddddd;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const iconContainers = document.querySelectorAll('.icon-container');
+
+            iconContainers.forEach(container => {
+                const icon = container.querySelector('.icon');
+                icon.addEventListener('click', () => {
+
+                    iconContainers.forEach(c => {
+                        if (c !== container) c.classList.remove('active');
+                    });
+
+                    container.classList.toggle('active');
+                });
+            });
+
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.icon-container')) {
+                    iconContainers.forEach(container => container.classList.remove('active'));
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="navbar">
+
+        <div class="icon-container">
+            <img src="assets/icons/windows.png" alt="Windows" class="icon">
+            <div class="dropdown first">
+                <a href="#">Windows 11</a>
+                <a href="#">Windows 10</a>
+                <a href="#">Windows 8.1</a>
+                <a href="#">Windows 7</a>
+                <a href="#">Windows Vista</a>
+                <a href="#">Windows XP</a>
+            </div>
+        </div>
+        
+        <div class="icon-container">
+            <img src="assets/icons/mac.png" alt="Mac" class="icon">
+            <div class="dropdown">
+                <a href="#">MacOS</a>
+            </div>
+        </div>
+                <div class="icon-container">
+            <img src="assets/icons/linux.png" alt="Linux" class="icon">
+            <div class="dropdown">
+                <a href="#">Ubuntu</a>
+                <a href="#">Arch Linux</a>
+                <a href="#">Red Ribbon</a>
+                <a href="#">Kali Linux</a>
+                <a href="#">ParrotOS</a>
+            </div>
+        </div>
+        
+        <div class="icon-container">
+            <img src="assets/icons/android.png" alt="Android" class="icon">
+            <div class="dropdown">
+                <a href="#">Android 2.0</a>
+                <a href="#">Android 4.0</a>
+                <a href="#">Android 4.4</a>
+                <a href="#">Android 5.0</a>
+                <a href="#">Android 7.0</a>
+                <a href="#">Android 8.0</a>
+                <a href="#">Android 8.0 (Go Edition)</a>
+                <a href="#">Android 9.0</a>
+                <a href="#">Android 10</a>
+                <a href="#">Android 11</a>
+                <a href="#">Android 12</a>
+                <a href="#">Android 13</a>
+                <a href="#">Android 14</a>
+                <a href="#">Android 15</a>
+            </div>
+        </div>
+
+                <div class="icon-container">
+            <img src="assets/icons/ios.png" alt="IOS" class="icon">
+            <div class="dropdown">
+                <a href="#">IOS 10</a>
+                <a href="#">IOS 11</a>
+                <a href="#">IOs 12</a>
+                <a href="#">IOS 13</a>
+                <a href="#">IOS 14</a>
+                <a href="#">IOs 15</a>
+                <a href="#">IOS 16</a>
+                <a href="#">IOS 17</a>
+                <a href="#">IOs 18</a>
+            </div>
+        </div>
+        
+        <div class="icon-container">
+            <img src="assets/icons/playstation.png" alt="PlayStation" class="icon">
+            <div class="dropdown">
+                <a href="#">PlayStation 3</a>
+                <a href="#">PlayStation 4</a>
+                <a href="#">PlayStation 5</a>
+            </div>
+        </div>
+
+                <div class="icon-container">
+            <img src="assets/icons/xbox.png" alt="Xbox" class="icon">
+            <div class="dropdown">
+                <a href="#">Xbox 360</a>
+                <a href="#">Xbox One</a>
+                <a href="#">Xbox One S</a>
+                <a href="#">Xbox One X</a>
+            </div>
+        </div>
+        
+        <div class="icon-container">
+            <img src="assets/icons/nintendo.png" alt="Nintendo" class="icon">
+            <div class="dropdown">
+                <a href="#">Nintendo Wii</a>
+                <a href="#">Nintendo Wii U</a>
+                <a href="#">Nintendo Switch</a>
+            </div>
+        </div>
+
+
+        <div class="icon-container">
+            <img src="assets/icons/settings.png" alt="Settings" class="icon" onclick="window.location.href='SETTINGS';">
+        </div>
+    </div>
+
+    <div class="content">
+        <h4>Start VM</h4>
+        <p>Please choose an OS to launch!</p>
+        <button onclick="alert('VM starting, please wait...')">Start VM</button>
+    </div>
+</body>
+</html>
